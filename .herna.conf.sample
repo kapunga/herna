@@ -1,0 +1,22 @@
+herna {
+  settings {
+      root_domain = "example.com"
+      cert_resolver = "example"
+  }
+  redis {
+    host = "10.0.1.25"
+    port = 6379
+  }
+  service {
+    dev {
+      entry_point = "websecure"
+      subdomain = "dev"
+      port = 8080
+    }
+    dev-api {
+      entry_point = "websecure"
+      subdomain = "dev-api"
+      port = 8080
+    }
+  }
+}
