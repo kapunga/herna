@@ -4,11 +4,11 @@ import cats.effect.std.Console
 import cats.effect.{ExitCode, IO}
 import cats.implicits.*
 import java.io.File
-import scala.concurrent.duration.Duration
+import scala.concurrent.duration.FiniteDuration
 import scopt.{OEffect, OParser}
 
 
-case class CmdLineOpts(ip: Option[String], ttl: Option[Duration], configFile: Option[File])
+case class CmdLineOpts(ip: Option[String], ttl: Option[FiniteDuration], configFile: Option[File])
 
 object CmdLineOpts {
   case class CmdParseError(exitCode: ExitCode) extends Exception("Configuration Parsing Failed")
@@ -37,7 +37,7 @@ object CmdLineOpts {
         .action((x, c) => c.copy(ip = Some(x)))
         .optional()
         .text("ip is a string property"),
-      opt[Duration]('t', "ttl")
+      opt[FiniteDuration]('t', "ttl")
         .action((x, c) => c.copy(ttl = Some(x)))
         .optional()
         .text("ttl is a Duration property"),

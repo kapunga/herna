@@ -9,13 +9,6 @@ object TraefikSettings {
   given Show[TraefikSettings] with
     override def show(ts: TraefikSettings): String =
       s"Traefik Settings:\n${ts.map(t => s"'${t._1}' -> '${t._2}'").mkString("\n")}"
-  
-  def build(cmd: CmdLineOpts, hc: HernaConfig): TraefikSettings = {
-    val localhost: InetAddress = InetAddress.getLocalHost
-    val localIpAddress: String = localhost.getHostAddress
-
-    hc.services.flatMap(s => apply(hc.hernaSettings, localIpAddress, s))
-  }
 
   def apply(hernaSettings: HernaConfig.HernaSettings, ip: String, service: HernaConfig.Service): TraefikSettings = {
     val routerName = service.name

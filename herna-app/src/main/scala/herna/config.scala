@@ -3,6 +3,7 @@ package herna
 import cats.effect.IO
 import java.io.File
 import org.ekrich.config.{Config, ConfigFactory, ConfigValueFactory}
+import scala.concurrent.duration.Duration
 import scala.jdk.CollectionConverters.given
 
 @scala.annotation.implicitNotFound("Missing given Extractor for type ${T}, make sure you define one!")
