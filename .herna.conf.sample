@@ -4,7 +4,7 @@ herna {
       cert_resolver = "example"
   }
   redis {
-    host = "10.0.1.25"
+    host = "127.0.0.1"
     port = 6379
   }
   service {
@@ -16,7 +16,7 @@ herna {
     dev-api {
       entry_point = "websecure"
       subdomain = "dev-api"
-      port = 8080
+      port = 8081
     }
   }
 }
